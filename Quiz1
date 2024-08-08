@@ -1,0 +1,90 @@
+package quiz1sistemas;
+
+import java.util.Scanner;
+
+public class App {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Definición de precios y descuentos
+        final int VALOR_BOLETA_GENERAL = 10000;
+        final int VALOR_BOLETA_VIP = 15000;
+        final int VALOR_COMBO1 = 40000;
+        final int VALOR_COMBO2 = 30000;
+        final int VALOR_COMBO3 = 42000;
+        final double DESCUENTO_COMBO1_VIP = 0.05;
+        final double DESCUENTO_COMBO2_VIP = 0.06;
+        final double DESCUENTO_COMBO3_VIP = 0.03;
+        
+        // Solicitar tipo de boleta
+        System.out.println("Ingrese tipo de boleta (G para General, V para VIP): ");
+        char tipoBoleta = scanner.next().charAt(0);
+        
+        // Solicitar cantidad de boletas
+        System.out.println("Ingrese cantidad de boletas: ");
+        int cantidadBoletas = scanner.nextInt();
+        
+        // Solicitar tipo de combo
+        System.out.println("Ingrese tipo de combo (1, 2 o 3): ");
+        int tipoCombo = scanner.nextInt();
+        
+        // Solicitar cantidad de combos
+        System.out.println("Ingrese cantidad de combos: ");
+        int cantidadCombos = scanner.nextInt();
+        
+        // Determinar el valor de la boleta
+        int calcularValorBoleta = (tipoBoleta == 'V' || tipoBoleta == 'G') ? VALOR_BOLETA_VIP : VALOR_BOLETA_GENERAL;
+        
+        // Calcular el valor total de las boletas
+        int valorTotalBoletas = calcularValorBoleta * cantidadBoletas;
+        
+        // Determinar el valor del combo y el descuento
+        int valorCombo = 0;
+        double descuentoCombo = 0.0;
+        
+        switch (tipoCombo) {
+            case 1:
+                valorCombo = VALOR_COMBO1;
+                if (tipoBoleta == 'V' || tipoBoleta == 'G') {
+                    descuentoCombo = DESCUENTO_COMBO1_VIP;
+                }
+                break;
+            case 2:
+                valorCombo = VALOR_COMBO2;
+                if (tipoBoleta == 'V' || tipoBoleta == 'G') {
+                    descuentoCombo = DESCUENTO_COMBO2_VIP;
+                }
+                break;
+                case 3:
+                valorCombo = VALOR_COMBO3;
+                if (tipoBoleta == 'V' || tipoBoleta == 'G') {
+                    descuentoCombo = DESCUENTO_COMBO3_VIP;
+                }
+                break;
+            default:
+                System.out.println("Tipo de combo inválido.");
+                return;
+        }
+        
+        // Calcular el valor neto del combo, descuento y total de la factura
+        double calcularvalorNetoCombo = valorCombo * cantidadCombos;
+        double calcularvalorDescuentoCombo = calcularvalorNetoCombo * descuentoCombo;
+        double valorTotalCombo = calcularvalorNetoCombo - calcularvalorDescuentoCombo;
+        double calcularvalorFactura = valorTotalBoletas + valorTotalCombo;
+        
+        // Mostrar factura
+        System.out.println("\nFactura:");
+        System.out.println("Tipo de boleta: " + (tipoBoleta == 'V' || tipoBoleta == 'G' ? "VIP" : "General"));
+        System.out.println("Cantidad de boletas: " + cantidadBoletas);
+        System.out.println("Valor total de las boletas: $" + valorTotalBoletas);
+        System.out.println("Número de Combo seleccionado: " + tipoCombo);
+        System.out.println("Cantidad de combos comprados: " + cantidadCombos);
+        System.out.println("Valor neto del total del combo: $" + calcularvalorNetoCombo);
+        System.out.println("Valor del descuento del combo: $" + calcularvalorDescuentoCombo);
+        System.out.println("Valor total de la factura: $" + calcularvalorFactura);
+        
+        
+
+            
+    }
